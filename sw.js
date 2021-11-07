@@ -6,7 +6,8 @@ var urlsToCache = [
   '/',
   '/index.html',
   '/assets/styles/main.css',
-  '/assets/scripts/main.js'
+  '/assets/scripts/main.js',
+  '/assets/scripts/router.js'
 ];
 
 
@@ -37,17 +38,7 @@ self.addEventListener('activate', function (event) {
    */
   var cacheAllowlist = ['lab-7-starter'];
 
-  event.waitUntil(
-    caches.keys().then(function(cacheNames) {
-      return Promise.all(
-        cacheNames.map(function(cacheName) {
-          if (cacheAllowlist.indexOf(cacheName) === -1) {
-            return caches.delete(cacheName);
-          }
-        })
-      );
-    })
-  );
+  event.waitUntil(clients.claim());
 });
 
 // Intercept fetch requests and store them in the cache
