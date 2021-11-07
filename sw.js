@@ -7,7 +7,7 @@ var urlsToCache = [
   '/index.html',
   '/assets/styles/main.css',
   '/assets/scripts/main.js',
-  '/assets/scripts/router.js'
+  '/assets/scripts/Router.js'
 ];
 
 
